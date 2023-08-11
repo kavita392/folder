@@ -1,0 +1,151 @@
+
+
+71 changes: 71 additions & 0 deletions 71
+Calculator/index.html
+@@ -0,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" type="text/css" href="styless.css">
+</head>
+
+<body>
+    <div class="containeer">
+        <h2>Calculator</h2>
+        <input type="text" name="screen" id="screen">
+        <div class="btn">
+            <table>
+                <tr claas="btn">
+
+                    <td><button>(</button></td>
+                    <td><button>)</button></td>
+                    <td><button>C</button></td>
+                    <td><button>%</button></td>
+
+                </tr>
+                <tr class="btn">
+
+                    <td><button>7</button></td>
+                    <td><button>8</button></td>
+                    <td><button>9</button></td>
+                    <td><button>/</button></td>
+
+
+
+                </tr>
+                <tr class="btn">
+
+                    <td><button>4</button></td>
+                    <td><button>5</button></td>
+                    <td><button>6</button></td>
+                    <td><button>X</button></td>
+
+
+
+                </tr>
+                <tr class="btn">
+
+                    <td><button>3</button></td>
+                    <td><button>2</button></td>
+                    <td><button>1</button></td>
+                    <td><button>-</button></td>
+
+
+
+                </tr>
+                <tr class="btn">
+
+                    <td><button>0</button></td>
+                    <td><button>.</button></td>
+                    <td><button>=</button></td>
+                    <td><button>+</button></td>
+
+
+                </tr>
+            </table>
+        </div>
+        <script src="script.js"></script>
+      </div>
+
+      let screen = document.getElementById('screen');
+      buttons = document.querySelectorAll('button');
+      let screenValue = '';
+      for (item of buttons) {
+          item.addEventListener('click', (e) => {
+              buttonText = e.target.innerText;
+              console.log('Button text is ', buttonText);
+              if (buttonText == 'X') {
+                  buttonText = '*';
+                  screenValue += buttonText;
+                  screen.value = screenValue;
+              }
+              else if (buttonText == 'C') {
+                  screenValue = "";
+                  screen.value = screenValue;
+              }
+              else if (buttonText == '=') {
+                  screen.value = eval(screenValue);
+              }
+              else {
+                  screenValue += buttonText;
+                  screen.value = screenValue;
+              }
+
+          })
+      }
+
+* {
+    margin: 0;
+    padding: .4rem;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    background-color: azure;
+}
+
+.containeer {
+    width: 0;
+    height: 0;
+    padding-top: 10rem;
+}
+
+h2 {
+    font-size: 40px;
+    color: rgb(73, 73, 179);
+    padding-left: 36rem;
+}
+
+#screen {
+    width: 20rem;
+    height: 3rem;
+    border: 0.2rem solid black;
+    margin-left: 33rem;
+    border-radius: 10px;
+    font-size: large;
+    font-weight: bold;
+}
+
+.btn {
+    padding-left: 33rem;
+}
+
+button {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    color: #8f1515;
+    font-size: large;
+    font-weight: bold;
+    background-color: #fff;
+
+}
+
+button:hover {
+    background-color: rgb(170, 183, 208);
+}
+</body>
+</html>
